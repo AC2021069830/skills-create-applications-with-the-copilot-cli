@@ -1,4 +1,4 @@
-const { add, sub, mul, div } = require('../calculator');
+const { add, sub, mul, div, mod, pow, square } = require('../calculator');
 
 describe('calculator basic operations', () => {
   test('2 + 3 = 5', () => {
@@ -29,5 +29,22 @@ describe('calculator basic operations', () => {
     expect(add(-1, -2)).toBe(-3);
     expect(sub(-5, 2)).toBe(-7);
     expect(mul(-3, 3)).toBe(-9);
+  });
+
+  // New tests: modulo, power, square
+  test('10 % 3 = 1 (modulo)', () => {
+    expect(mod(10, 3)).toBe(1);
+  });
+
+  test('power: 2^8 = 256', () => {
+    expect(pow(2, 8)).toBe(256);
+  });
+
+  test('square: 7^2 = 49', () => {
+    expect(square(7)).toBe(49);
+  });
+
+  test('modulo by zero throws', () => {
+    expect(() => mod(5, 0)).toThrow('division by zero');
   });
 });
